@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "event_name": "Wedding",
+    "price": 25000,
+    "short_description": "A romantic wedding celebration.",
+    "long_description": "A beautiful and romantic wedding ceremony celebrating the union of Alice and Bob. The event will take place in a charming venue with stunning decorations and a gourmet dining experience. Guests will be treated to a night of love and joy as the couple begins their journey together.",
+    "image_url": "https://i.ibb.co/tcy15tq/wedding.jpg"
+  },
+  {
+    "id": 2,
+    "event_name": "Birthday Party",
+    "price": 10000,
+    "short_description": "A superhero-themed birthday party.",
+    "long_description": "A fun-filled birthday bash celebrating John's 30th birthday. The party will feature superhero-themed decorations, games, and costumes. Friends and family will gather for a day of excitement, laughter, and delicious treats.",
+    "image_url": "https://i.ibb.co/4SCQprQ/birtday.jpg"
+  },
+  {
+    "id": 3,
+    "event_name": "Anniversary",
+    "price": 50000,
+    "short_description": "A heartfelt 10th-anniversary celebration.",
+    "long_description": "A memorable 10th-anniversary celebration for Sarah and Michael. The event will be a heartfelt renewal of vows, followed by a romantic dinner and dancing. Close friends and family will join the couple in commemorating their decade of love and commitment.",
+    "image_url": "https://i.ibb.co/4fQjT80/anniversary-event-management-1000x1000.jpg"
+  },
+  {
+    "id": 4,
+    "event_name": "Engagement Party",
+    "price": 30000,
+    "short_description": "An intimate engagement party.",
+    "long_description": "An intimate engagement party for Emily and David, announcing their commitment to a lifetime together. The event will feature a charming garden setting, live music, and a delectable buffet. Friends and family will gather to share in the couple's joy and excitement.",
+    "image_url": "https://i.ibb.co/W6wy42L/engament.jpg"
+  },
+  {
+    "id": 5,
+    "event_name": "Retirement Party",
+    "price": 20000,
+    "short_description": "A farewell to a dedicated colleague.",
+    "long_description": "A well-deserved retirement party in honor of Jane Smith's 30 years of dedicated service. Colleagues and friends will come together to celebrate her career achievements and wish her a happy and relaxing retirement. The event will feature speeches, gifts, and a heartfelt farewell.",
+    "image_url": "https://i.ibb.co/6m7wj5r/retiremnt.jpg"
+  },
+  {
+    "id": 6,
+    "event_name": "Baby Shower",
+    "price": 15000,
+    "short_description": "A gender reveal baby shower.",
+    "long_description": "A joyous baby shower to celebrate the upcoming arrival of Lisa Brown's little one. The event will be a gender reveal party filled with anticipation, games, and sweet treats. Friends and family will gather to share in the excitement of welcoming the newest member of the family.",
+    "image_url": "https://i.ibb.co/SVSGXnd/baby-shower-tips-722x406.jpg"
+  }
+]
