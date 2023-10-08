@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router-dom";
-const Servicecard = ({ event }) => {
+const Booking = ({ event }) => {
   const {
     id,
     event_name,
@@ -17,14 +18,14 @@ const Servicecard = ({ event }) => {
 
         <p className="">{short_description}</p>
         <p className="">${price}</p>
-        <Link to={`/Servicecard/${id}`}>
+       
           <button className="w-[100px] h-[40px] rounded-md bg-[#EAA334]  ">
-            View Details
+           Booked
           </button>
-        </Link>
+        
       </div>
     </div>
   );
 };
 
-export default Servicecard;
+export default Booking;

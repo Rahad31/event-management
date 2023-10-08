@@ -3,8 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Components/Root/Root";
+import AuthProvider from "./Components/Provider/Provider";
+import Register from "./Components/Register/Register";
+import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
-
+import Eventdetails from "./Components/Eventdetails/Eventdetails";
+import Bookings from "./Components/Bookings/Bookings";
+import PrivateRoute from "./Components/privateroute/PrivateRoute";
+PrivateRoute;
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,12 +20,40 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/Servicecard/:id",
+        loader: () => fetch("../public/event.json"),
+        element: (
+          <PrivateRoute>
+            <Eventdetails></Eventdetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/bookings",
+        loader: () => fetch("../public/event.json"),
+        element: (
+          <PrivateRoute>
+            <Bookings></Bookings>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

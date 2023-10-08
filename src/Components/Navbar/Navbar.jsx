@@ -13,7 +13,7 @@ const Navbar = () => {
         <NavLink to="/register">Register</NavLink>
       </li>
       <li>
-        <NavLink to="/booking">Booking</NavLink>
+        <NavLink to="/bookings">Bookings</NavLink>
       </li>
 
       <li>
@@ -25,7 +25,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-6">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
