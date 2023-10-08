@@ -7,7 +7,7 @@ const Gallery = () => {
   }, []);
   return (
     <div
-      data-aos="fade-right"
+      data-aos="fade-up"
       className=" container mx-auto flex flex-col justify-center items-center gap-2 my-20"
     >
       <h1 className="text-3xl font-bold text-[#EAA334]">PHOTO GALLERY</h1>

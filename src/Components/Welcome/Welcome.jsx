@@ -1,7 +1,14 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const Welcome = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="container mx-auto my-24 flex flex-col gap-12 lg:flex-row">
-      <div className="flex flex-col gap-2">
+      <div data-aos="fade-right" className="flex flex-col gap-2">
         <h1 className="text-4xl font-bold text-[#EAA334]">WELCOME</h1>
         <h3 className="text-xl">Every Events will be Memorable</h3>
         <div className="w-3/12 ">
@@ -33,7 +40,7 @@ const Welcome = () => {
           ensure the best Event Management services with the reasonable cost.
         </p>
       </div>
-      <div className="">
+      <div data-aos="fade-left" className="">
         <iframe
           className="rounded-md"
           width="760"
