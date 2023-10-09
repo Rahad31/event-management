@@ -12,6 +12,7 @@ import Bookings from "./Components/Bookings/Bookings";
 import PrivateRoute from "./Components/privateroute/PrivateRoute";
 import Profile from "./Components/Profile/Profile";
 import Serviceprovided from "./Components/ServiceProvided/Serviceprovided";
+import Page404 from "./Components/404page/Page404";
 PrivateRoute;
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
             <Profile></Profile>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/*",
+        element: <Page404></Page404>,
       },
     ],
   },
