@@ -12,12 +12,14 @@ const Home = () => {
     Aos.init();
   }, []);
   return (
-    <div >
-      <Slider></Slider>
+    <div>
+      <div className="mx-4">
+       <Slider></Slider>
       <Welcome></Welcome>
       <Services></Services>
       <Expart></Expart>
-      <Gallery></Gallery>
+      <Gallery></Gallery></div>
+     
       <Footer></Footer>
     </div>
   );

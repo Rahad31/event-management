@@ -11,6 +11,7 @@ import {
 import { createContext, useEffect, useState } from "react";
 import auth from "../../Firebase/firebase.config";
 import { ToastContainer, toast } from "react-toastify";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -21,25 +22,25 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  
   const createUser = (email, password, name, image) => {
     setLoading(true);
     // let Name = name;console.log("ok");
     // let Img = image;
     // console.log(name, image);
     createUserWithEmailAndPassword(auth, email, password)
+    const navigate=useNavigate()
       .then((result) => {
-        toast("Successfully Register");
+        toast("Successfully Register and Login");
+        
         console.log(result.user);
         updateProfile(result.user, {
           displayName: name,
           photoURL: image,
         });
-        // ...
+        navigate("/");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
         // ..
       });
   };

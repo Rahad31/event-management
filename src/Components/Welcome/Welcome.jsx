@@ -42,7 +42,7 @@ const Welcome = () => {
       </div>
       <div data-aos="fade-left" className="">
         <iframe
-          className="rounded-md"
+          className="rounded-md w-[380px] md:w-[718px] lg:[760px]"
           width="760"
           height="460"
           src="https://www.youtube.com/embed/ipw1fQad5sg?si=VoKATQThHYw9zs6d"

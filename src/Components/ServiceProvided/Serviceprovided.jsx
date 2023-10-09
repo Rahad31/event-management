@@ -15,8 +15,8 @@ const Serviceprovided = () => {
   }, []);
   return (
     <div >
-      <div className="container mx-auto my-20 flex flex-col justify-center items-center gap-2">
-        <h1 className="text-4xl font-bold text-[#EAA334]">
+      <div className="container mx-auto my-20 flex flex-col justify-center items-center gap-2 px-2">
+        <h1 className="text-4xl  text-center font-bold text-[#EAA334]">
           Our Service on The Event
         </h1>
         <h3 className="text-xl">Every Events will be Memorable</h3>

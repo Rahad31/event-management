@@ -43,7 +43,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="container mx-auto mt-6">
+    <div className="container mx-auto my-6 ">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -77,11 +77,14 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
-        <div className="navbar-end gap-1">
+        <div className="navbar-end gap-1 flex flex-col-reverse pl-10 pt- md:flex-row md:pl-0 md:pt-0">
           {user ? (
             <>
               <span>
-                <img className="w-[35px] h-[35px] rounded-full" src={user.photoURL}></img>
+                <img
+                  className="w-[35px] h-[35px] rounded-full"
+                  src={user.photoURL}
+                ></img>
               </span>
               <span>{user.displayName}</span>
               <a onClick={handleLogOut} className="btn btn-sm">
