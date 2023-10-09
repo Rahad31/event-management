@@ -1,18 +1,20 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/Provider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const Register = () => {
   const { createUser } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const handleRegister = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     const image = event.target.image.value;
-    console.log(name, email, password, image);
+    event.target.reset();
+    // console.log(image);
 
     // validation
 
@@ -28,16 +30,17 @@ const Register = () => {
         "Your password should have at least one upper case characters and special character"
       );
       return;
+    } else {
+      createUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          toast("Successfully Registered and Login");
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
-    // create user in firebase
-    createUser(name, email, password, image)
-      .then((result) => {
-        console.log(result.user);
-        toast("Successfully Registered");
-      })
-      .catch((error) => {
-        toast("Something wrong ...try Again");
-      });
   };
 
   return (

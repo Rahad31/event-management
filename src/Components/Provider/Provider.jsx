@@ -7,6 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 
+
 import { createContext, useEffect, useState } from "react";
 import auth from "../../Firebase/firebase.config";
 
@@ -20,7 +21,12 @@ const AuthProvider = ({ children }) => {
 
   const createUser = (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+      
+    );
   };
 
   const signInUser = (email, password) => {
@@ -41,6 +47,7 @@ const AuthProvider = ({ children }) => {
   // observe auth state change
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Current value of the current user", currentUser);
       setUser(currentUser);
       setLoading(false);
     });
@@ -64,3 +71,7 @@ const AuthProvider = ({ children }) => {
 };
 
 export default AuthProvider;
+
+
+
+

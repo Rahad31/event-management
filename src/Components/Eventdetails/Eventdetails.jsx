@@ -1,7 +1,8 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+
 import { ToastContainer, toast } from "react-toastify";
-import { saveEvent } from "../Localstorage/Localstorage";
+
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 const Eventdetails = () => {

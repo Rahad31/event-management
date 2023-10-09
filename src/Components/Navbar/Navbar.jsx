@@ -1,27 +1,42 @@
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/Provider";
+import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+//  <ToastContainer />;
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => toast("logged out successfully"))
+      .catch((error) => console.error(error));
+  };
   const navlinks = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/login">Login</NavLink>
-      </li>
-      <li>
-        <NavLink to="/register">Register</NavLink>
-      </li>
-      <li>
-        <NavLink to="/bookings">Bookings</NavLink>
-      </li>
+      {!user && (
+        <>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/register">Register</NavLink>
+          </li>
+        </>
+      )}{" "}
+      {user && (
+        <>
+          <li>
+            <NavLink to="/bookings">Bookings</NavLink>
+          </li>
 
-      <li>
-        <NavLink to="/profile">Profile</NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
-      </li>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -60,11 +75,21 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login">
-            <button className="btn btn-sm">Login</button>
-          </Link>
+          {user ? (
+            <>
+              <span>{user.email}</span>
+              <a onClick={handleLogOut} className="btn btn-sm">
+                Sign out
+              </a>
+            </>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-sm">Login</button>
+            </Link>
+          )}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

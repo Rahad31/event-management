@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/Provider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const { signInUser, signInWithGoogle } = useContext(AuthContext);
@@ -16,10 +17,12 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         e.target.reset();
+        toast("Successfull Login");
         navigate("/");
       })
       .catch((error) => {
         console.error(error);
+        toast("Password or Email is Wrong");
       });
   };
 
@@ -27,6 +30,8 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
+        toast("Successfull Login");
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -34,10 +39,10 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-[#e2e8f0]">
       <div className="hero-content flex-col">
         <div className="text-center ">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+          <h1 className="text-5xl font-bold text-[#eaa334]">Login </h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
@@ -65,31 +70,31 @@ const Login = () => {
                   placeholder="password"
                   className="input input-bordered"
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-gost bg-[#eaa334]">Login</button>
               </div>
             </form>
+
+            <p>
+              <button
+                onClick={handleGoogleSignIn}
+                className="w-full btn btn-error bg-[#eaa334]"
+              >
+                Log in with Google
+              </button>
+            </p>
             <p>
               {" "}
-              New to this site? Please{" "}
+              New in Here?
               <Link to="/register">
                 <button className="btn btn-link">Register</button>
               </Link>{" "}
             </p>
-            <p>
-              <button onClick={handleGoogleSignIn} className="btn btn-ghost">
-                Google
-              </button>
-            </p>
           </div>
         </div>
-      </div>
+      </div>{" "}
+      <ToastContainer />;
     </div>
   );
 };
