@@ -1,3 +1,5 @@
+
+
 const getStoredEvent = () => {
   const storedEvent = localStorage.getItem("event-list");
   if (storedEvent) {

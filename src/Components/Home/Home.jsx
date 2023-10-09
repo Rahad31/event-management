@@ -12,7 +12,7 @@ const Home = () => {
     Aos.init();
   }, []);
   return (
-    <div data-aos="fade-left">
+    <div >
       <Slider></Slider>
       <Welcome></Welcome>
       <Services></Services>

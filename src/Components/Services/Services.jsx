@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Servicecard from "../Servicecard/Servicecard";
 import Aos from "aos";
 import "aos/dist/aos.css";
-
+ 
 const Services = () => {
   const [events, setEvents] = useState([]);
   useEffect(() => {

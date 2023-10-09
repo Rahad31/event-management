@@ -5,11 +5,14 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
-
 
 import { createContext, useEffect, useState } from "react";
 import auth from "../../Firebase/firebase.config";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export const AuthContext = createContext(null);
 
@@ -19,14 +22,26 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const createUser = (email, password) => {
+  const createUser = (email, password, name, image) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-      
-    );
+    // let Name = name;console.log("ok");
+    // let Img = image;
+    // console.log(name, image);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        toast("Successfully Register");
+        console.log(result.user);
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: image,
+        });
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
   };
 
   const signInUser = (email, password) => {
@@ -66,12 +81,13 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+    <div>
+      <div>
+        <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+      </div>
+      <ToastContainer />
+    </div>
   );
 };
 
 export default AuthProvider;
-
-
-
-

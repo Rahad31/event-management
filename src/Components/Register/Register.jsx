@@ -31,7 +31,7 @@ const Register = () => {
       );
       return;
     } else {
-      createUser(email, password)
+      createUser(email, password, name, image)
         .then((result) => {
           console.log(result.user);
           toast("Successfully Registered and Login");
@@ -90,10 +90,10 @@ const Register = () => {
               </div>{" "}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Upload Image</span>
+                  <span className="label-text">Upload Image URL</span>
                 </label>
                 <input
-                  type="file"
+                  type="text"
                   name="image"
                   placeholder="Image"
                   className="input input-bordered "

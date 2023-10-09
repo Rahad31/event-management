@@ -10,6 +10,8 @@ import Home from "./Components/Home/Home";
 import Eventdetails from "./Components/Eventdetails/Eventdetails";
 import Bookings from "./Components/Bookings/Bookings";
 import PrivateRoute from "./Components/privateroute/PrivateRoute";
+import Profile from "./Components/Profile/Profile";
+import Serviceprovided from "./Components/ServiceProvided/Serviceprovided";
 PrivateRoute;
 const router = createBrowserRouter([
   {
@@ -38,11 +40,29 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/Service",
+        loader: () => fetch("../public/event.json"),
+        element: (
+          <PrivateRoute>
+            <Serviceprovided></Serviceprovided>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/bookings",
         loader: () => fetch("../public/event.json"),
         element: (
           <PrivateRoute>
             <Bookings></Bookings>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile",
+
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
           </PrivateRoute>
         ),
       },

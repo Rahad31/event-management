@@ -1,7 +1,9 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
-
+import { saveEvent } from "../Localstorage/Localstorage";
 import { ToastContainer, toast } from "react-toastify";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/Provider";
 
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
@@ -11,10 +13,13 @@ const Eventdetails = () => {
 
   const idInt = parseInt(id);
   const eventdetail = Eventcard.find((eventdetail) => eventdetail.id === idInt);
-  
+  const { user } = useContext(AuthContext);
+  let User = user.uid;
+  console.log(User);
+  console.log(User);
   const handleEvent = () => {
-    saveEvent(idInt);
-    toast("Successfully Donated !");
+    saveEvent(idInt, User);
+    toast("Successfully booked");
   };
   //   console.log(eventCard);
   return (
@@ -27,7 +32,7 @@ const Eventdetails = () => {
           ></img>
         </div>
         <div className="flex justify-center items-center mt-[20px]  ">
-          <Link to="/bookings">
+          <Link to="/Service">
             <button onClick={handleEvent} className="btn btn-error">
               Book Now
             </button>

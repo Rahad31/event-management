@@ -28,10 +28,13 @@ const Navbar = () => {
       )}{" "}
       {user && (
         <>
+          {" "}
           <li>
-            <NavLink to="/bookings">Bookings</NavLink>
+            <NavLink to="/Service">Service</NavLink>
           </li>
-
+          <li>
+            <NavLink to="/bookings">Booking</NavLink>
+          </li>
           <li>
             <NavLink to="/profile">Profile</NavLink>
           </li>
@@ -74,10 +77,13 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-1">
           {user ? (
             <>
-              <span>{user.email}</span>
+              <span>
+                <img className="w-[35px] h-[35px] rounded-full" src={user.photoURL}></img>
+              </span>
+              <span>{user.displayName}</span>
               <a onClick={handleLogOut} className="btn btn-sm">
                 Sign out
               </a>

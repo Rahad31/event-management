@@ -1,9 +1,17 @@
 import React from "react";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const Slider = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div>
-      <div className="carousel container mx-auto flex  h-[700px] rounded-md my-10">
+      <div
+        data-aos="fade-left"
+        className="carousel container mx-auto flex  h-[700px] rounded-md my-10"
+      >
         <div id="slide1" className="carousel-item relative w-full">
           <img src="https://i.ibb.co/tcy15tq/wedding.jpg" className="w-full" />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
